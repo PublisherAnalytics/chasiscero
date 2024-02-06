@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://s0.2mdn.net/dfp/456417/4603228993/1680939504142/990X250/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script>
+	<title>Skiller Academy</title>
+
+	<meta name="ad.size" content="width=990,height=250">
+
+	<style type="text/css">
+		html, body { margin: 0; padding: 0; background: #fff; }
+
+		.imagen_01{
+			position: absolute;
+			background-image: url("assets/01.jpg");
+			width: 990px;
+			height: 250px;
+			margin: auto;
+			animation: 20s infinite opacidad1;
+		}
+
+		@keyframes opacidad1 {
+		0% {opacity: 100;}
+		10% {opacity:100;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:100;}
+		}
+
+		@-webkit-keyframes opacidad1 {
+		0% {opacity: 100;}
+		10% {opacity:100;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:100;}
+		}
+
+		@-moz-keyframes opacidad1 {
+		0% {opacity: 100;}
+		10% {opacity:100;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:100;}
+		}
+
+		@-o-keyframes opacidad1 {
+		0% {opacity: 100;}
+		10% {opacity:100;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:100;}
+		}
+
+		@-ms-keyframes opacidad1 {
+		0% {opacity: 100;}
+		10% {opacity:100;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:100;}
+		}
+
+		.imagen_02{
+			position: absolute;
+			background-image: url("assets/02.jpg");
+			width: 990px;
+			height: 250px;
+			margin: auto;
+			animation: 20s infinite opacidad2;
+		}
+
+		@keyframes opacidad2 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+
+		@-webkit-keyframes opacidad2 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+
+		@-moz-keyframes opacidad2 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+
+		@-o-keyframes opacidad2 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+
+		@-ms-keyframes opacidad2 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:100;}
+		35% {opacity:100;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+		
+		.imagen_03{
+			position: absolute;
+			background-image: url("assets/03.jpg");
+			width: 990px;
+			height: 250px;
+			margin: auto;
+			animation: 20s infinite opacidad3;
+		}
+
+		@keyframes opacidad3 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+
+		@-webkit-keyframes opacidad3 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+
+		@-moz-keyframes opacidad3 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+
+		@-o-keyframes opacidad3 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+	
+		@-ms-keyframes opacidad3 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:100;}
+		50% {opacity:100;}
+		60% {opacity:100;}
+		70% {opacity:0;}
+		80% {opacity:0;}
+		90% {opacity:0;}
+		100% {opacity:0;}
+		}
+	
+		.imagen_04{
+			position: absolute;
+			background-image: url("assets/04.jpg");
+			width: 990px;
+			height: 250px;
+			margin: auto;
+			animation: 20s infinite opacidad4;
+		}
+
+		@keyframes opacidad4 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:0;}
+		}
+
+		@-webkit-keyframes opacidad4 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:0;}
+		}
+
+		@-moz-keyframes opacidad4 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:0;}
+		}
+
+		@-o-keyframes opacidad4 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:0;}
+		}
+
+		@-ms-keyframes opacidad4 {
+		0% {opacity: 0;}
+		10% {opacity:0;}
+		20% {opacity:0;}
+		35% {opacity:0;}
+		40% {opacity:0;}
+		50% {opacity:0;}
+		60% {opacity:0;}
+		70% {opacity:100;}
+		80% {opacity:100;}
+		90% {opacity:100;}
+		100% {opacity:0;}
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		var clickTag = "https://www.google.es"; 
+	</script>
+
+</head>
+<body>
+	<a href="javascript:window.open(window.clickTag)" style="position: absolute;">
+
+		<div class="imagen_01">
+			<div class="imagen_02">
+			</div>
+			<div class="imagen_03">
+			</div>
+			<div class="imagen_04">
+			</div>
+			<video width="445" height="250" muted="" loop="" autoplay="" controls="" src="assets/video.mp4" style="position: absolute; top:0px;"></video>	
+		</div>
+	</a>
+
+</body></html>
