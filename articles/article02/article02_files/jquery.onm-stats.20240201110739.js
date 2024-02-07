@@ -1,0 +1,1 @@
+(function($){$.extend({onmStats:function(options){var defaultOptions={controller:'/content/stats/'};var settings=$.extend({},defaultOptions,options);if('content_id'in settings){$.ajax({url:settings.controller,method:'GET',data:{content_id:settings.content_id,}});}}});})(jQuery);
