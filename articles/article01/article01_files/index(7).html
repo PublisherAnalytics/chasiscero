@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)https://s0.2mdn.net/sadbundle/8526250884861528194/23_ACS_PT_NSS_DDV_MOFU_Easy_970x250/index.html?ev=01_250 -->
+<html lang="en" class=" is-size-970x250"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="ad.size" content="width=970,height=250">
+    <title>Banner - 22_ACG_ES_SMA_DFT_MOFU_GVDash - 970x250</title>
+    <link rel="stylesheet" href="./main.css">
+    <style type="text/css" data-ft="css"></style>
+    <script>
+      var clickTag = "https://www.sage.com/pt-pt/contabilistas/sage-for-accountants/";
+    </script>
+  <script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+  <body>
+    <div class="banner"><img class="logo0 frame-element is-invisible" alt="" src="./Sage-Logo-Helping-Business-Flow.svg" style="opacity: 0;"><img class="logo frame-element is-invisible" alt="" src="./Sage-Logo-Helping-Business-Flow.svg" style="opacity: 0;">
+      <div class="frame frame-1 is-inactive" style="transform: translate(0px, 0px); opacity: 0;">
+        <div class="frame-element frame-content layout-flow">
+          <div class="text-1 font-size-3" data-ft="text_1">Acompanhe todos os seus clientes. O nosso software para Contabilistas simplifica a sua vida.</div>
+          <div class="text-1-1 font-size-2" data-ft="text_1_1"></div>
+          <div class="text-1-2 font-size-3" data-ft="text_1_2"></div>
+        </div>
+        <div class="svg-animated svg-animated--icon frame-element reset-anim"><svg enable-background="new 0 0 1076.2 340" viewBox="0 0 1076.2 340" xmlns="http://www.w3.org/2000/svg" style="">
+            <g fill="none" stroke="#00d639" stroke-linecap="round" stroke-linejoin="round" stroke-width="28">
+              <path d="m14 109.6h336.1c6.6 0 12-5.4 12-12v-48.3c0-4.9 1-9.5 2.8-13.7s4.4-8 7.6-11.2 7-5.8 11.2-7.6 8.9-2.8 13.7-2.8h241.1c4.9 0 9.5 1 13.7 2.9 4.2 2 8 4.9 11.2 8.8s5.8 8.7 7.6 14.5 2.8 12.4 2.8 20v60.3 85.5" class="nlPuctPh_0"></path>
+              <path d="m361.1 154.7v125.1" class="nlPuctPh_1"></path>
+              <path d="m361.1 279.8c0 7.6 1 14.3 2.8 20 1.8 5.8 4.4 10.6 7.6 14.5s7 6.8 11.2 8.8 8.9 2.9 13.7 2.9h241.1c4.9 0 9.5-1 13.7-2.8s8-4.4 11.2-7.6 5.8-7 7.6-11.2 2.8-8.9 2.8-13.7v-29c0-6.6 5.4-12 12-12h377.4" class="nlPuctPh_2"></path>
+              <path d="m432 197.6 45.5 34.6c7.6 5.8 18.5 4.3 24.3-3.3l99.3-130.6" class="nlPuctPh_3"></path>
+            </g>
+            <style data-made-with="vivus-instant">
+              .nlPuctPh_0 {
+                stroke-dasharray: 911 913;
+                stroke-dashoffset: 912;
+                animation: nlPuctPh_draw 1317ms ease 0ms forwards;
+              }
+
+              .nlPuctPh_1 {
+                stroke-dasharray: 126 128;
+                stroke-dashoffset: 127;
+                animation: nlPuctPh_draw 183ms ease 1317ms forwards;
+              }
+
+              .nlPuctPh_2 {
+                stroke-dasharray: 787 789;
+                stroke-dashoffset: 788;
+                animation: nlPuctPh_draw 1138ms ease 1500ms forwards;
+              }
+
+              .nlPuctPh_3 {
+                stroke-dasharray: 249 251;
+                stroke-dashoffset: 250;
+                animation: nlPuctPh_draw 361ms ease 2638ms forwards;
+              }
+
+              @keyframes nlPuctPh_draw {
+                100% {
+                  stroke-dashoffset: 0;
+                }
+              }
+
+              @keyframes nlPuctPh_fade {
+                0% {
+                  stroke-opacity: 1;
+                }
+
+                94.44444444444444% {
+                  stroke-opacity: 1;
+                }
+
+                100% {
+                  stroke-opacity: 0;
+                }
+              }
+            </style>
+          </svg></div>
+      </div>
+     
+      <div class="sprite-sheet-1 is-playing" style="margin-left: 0px;"></div>
+      
+      <div class="frame frame-end is-active" style="transform: translate(0px, 0px);">
+        <div class="frame-element frame-content layout-flow">
+          <div class="text-end font-size-2" data-ft="text_end">Sage for Accountants</div>
+          <div class="text-end-1 font-size-3" data-ft="text_end_1"></div>
+          <div class="text-end-2 font-size-4" data-ft="text_end_2"></div>
+          <div class="btn is-active" data-ft="button_text" style="padding: 0.9rem 1.9rem; font-size: 1.2rem; transform: translate(0px, 0px);">Saiba mais</div>
+          <div class="terms" data-ft="terms_1"></div>
+        </div>
+      </div>
+    </div>
+    <div id="click-tag" class="click-tag" onclick="window.open(window.clickTag); void(0);"></div>
+    <script src="./gsap_3.5.1_min.js"></script>
+    <script src="./main.js"></script>
+    <script>
+      window.addEventListener('load', function(e) {
+        advert.init();
+      });
+    </script>
+  
+</body></html>
